@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YourBrand — Do more with less effort</title>
+  <meta name="description" content="YourBrand helps you get more done with a simple, fast, and secure platform.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">Your<span>Brand</span></a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#contact">Contact</a>
+        <a href="#signup" class="btn btn-primary">Get started</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <div class="hero">
+      <div class="container">
+        <span class="badge">✨ Now open for early access</span>
+        <h1>Build something <span class="grad">people love</span>, faster than ever</h1>
+        <p>YourBrand is a simple, fast, and secure platform that helps you turn ideas into results. Replace this text with your own one-sentence pitch.</p>
+        <div class="hero-cta">
+          <a href="#signup" class="btn btn-primary">Join the waitlist</a>
+          <a href="#features" class="btn btn-ghost">See features</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <section id="features">
+      <div class="container">
+        <div class="section-head">
+          <h2>Everything you need</h2>
+          <p>A few reasons people choose YourBrand. Edit these cards to match your product.</p>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <div class="icon">⚡</div>
+            <h3>Lightning fast</h3>
+            <p>Designed for speed from the ground up, so you spend less time waiting and more time doing.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🔒</div>
+            <h3>Private and secure</h3>
+            <p>Your data stays yours. We follow modern security practices to keep it protected.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🎯</div>
+            <h3>Simple by design</h3>
+            <p>No clutter and no learning curve. Get set up in minutes and start seeing value right away.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🤝</div>
+            <h3>Friendly support</h3>
+            <p>Real people ready to help whenever you have a question or need a hand.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📱</div>
+            <h3>Works everywhere</h3>
+            <p>Looks and works great on phones, tablets, and desktops alike.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🚀</div>
+            <h3>Always improving</h3>
+            <p>We ship updates regularly based on feedback from people like you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how">
+      <div class="container">
+        <div class="section-head">
+          <h2>How it works</h2>
+          <p>Three simple steps from sign-up to results.</p>
+        </div>
+        <div class="grid steps">
+          <div class="card">
+            <h3>Sign up</h3>
+            <p>Create your free account in under a minute. No credit card needed.</p>
+          </div>
+          <div class="card">
+            <h3>Set things up</h3>
+            <p>Tell us what you need and we will help you configure everything.</p>
+          </div>
+          <div class="card">
+            <h3>Enjoy the results</h3>
+            <p>Sit back while YourBrand does the heavy lifting for you.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signup / CTA -->
+    <section id="signup">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Ready to get started?</h2>
+          <p>Join the waitlist and be the first to know when we launch.</p>
+          <!--
+            To make this form work, create a free form at https://formspree.io
+            and replace YOUR_FORM_ID below with the ID they give you.
+          -->
+          <form class="signup" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+            <button type="submit" class="btn btn-primary">Notify me</button>
+          </form>
+          <p style="margin-top:16px;font-size:0.85rem;">By signing up you agree to our <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="padding-top:20px;">
+      <div class="container" style="text-align:center;">
+        <h2 style="margin-bottom:10px;">Questions?</h2>
+        <p style="color:var(--muted);">Email us at <a href="mailto:hello@yourdomain.com">hello@yourdomain.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year">2026</span> YourBrand. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
