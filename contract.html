@@ -375,7 +375,7 @@ between Larkwell Photography and the Client listed below:
     <div class="signature-box">
         <label>Photographer Signature</label>
         <div class="signature-line">
-            <img class="signature-image" src="data:image/png;base64,{{31.sarah_signature_base64}}" alt="Photographer signature">
+           <img class="signature-image" id="photographer_signature" alt="Photographer signature">
         </div>
         <label>Sarah Larkwell</label>
         <label>Date</label>
@@ -404,17 +404,23 @@ between Larkwell Photography and the Client listed below:
 <script>
     // 1. Extract URL Parameters & Hydrate Page Fields
     const params = new URLSearchParams(window.location.search);
+    const photographerSignature = params.get('photographer_signature');
 
-    document.getElementById('record_id').value = params.get('recordId') || '';
-    document.getElementById('disp_couple_names').innerText = params.get('names') || 'Valued Client';
-    document.getElementById('disp_email').innerText = params.get('email') || 'N/A';
-    document.getElementById('disp_wedding_date').innerText = params.get('date') || 'TBD';
-    document.getElementById('disp_coverage_hours').innerText = params.get('hours') || 'N/A';
+if (photographerSignature) {
+    document.getElementById('photographer_signature').src =
+        'data:image/png;base64,' + photographerSignature;
+}
+
+    document.getElementById('record_id').value = params.get('record_id') || '';
+    document.getElementById('disp_couple_names').innerText = params.get('client_name') || 'Valued Client';
+    document.getElementById('disp_email').innerText = params.get('client_email') || 'N/A';
+    document.getElementById('disp_wedding_date').innerText = params.get('wedding_date') || 'TBD';
+    document.getElementById('disp_coverage_hours').innerText = params.get('coverage_hours') || 'N/A';
     document.getElementById('disp_venue').innerText = params.get('venue') || 'N/A';
-    document.getElementById('disp_ceremony_loc').innerText = params.get('ceremony') || 'TBD';
-    document.getElementById('disp_reception_loc').innerText = params.get('reception') || 'TBD';
+    document.getElementById('disp_ceremony_loc').innerText = params.get('ceremony_loc') || 'TBD';
+    document.getElementById('disp_reception_loc').innerText = params.get('reception_loc') || 'TBD';
     document.getElementById('disp_package').innerText = params.get('package') || 'Custom Collection';
-    document.getElementById('disp_total_fee').innerText = params.get('total') ? `$${params.get('total')} CAD` : 'TBD';
+    document.getElementById('disp_total_fee').innerText = params.get('total_fee') ? `$${params.get('total_fee')} CAD` : 'TBD';
     document.getElementById('disp_retainer').innerText = params.get('retainer') ? `$${params.get('retainer')} CAD` : 'TBD';
     document.getElementById('disp_balance').innerText = params.get('balance') ? `$${params.get('balance')} CAD` : 'TBD';
 
