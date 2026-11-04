@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Larkwell Photography - Wedding Agreement</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --primary: #2C3E35;       /* Forest Green */
+    --primary-hover: #1b2822; 
+    --accent: #C5A059;        /* Soft Gold */
+    --text-dark: #222222;
+    --text-muted: #555555;
+    --bg-light: #F7F8F7;
+    --card-bg: #FFFFFF;
+    --border-color: #E2E8E4;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding: 40px 15px;
+}
+
+.contract-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 55px;
+    border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid var(--border-color);
+}
+
+header {
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 25px;
+    margin-bottom: 35px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    color: var(--primary);
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    margin-top: 6px;
+    font-weight: 600;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 6px;
+    margin-top: 35px;
+    margin-bottom: 18px;
+}
+
+p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.field-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px 25px;
+    margin: 20px 0;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--primary);
+}
+
+input[type="text"], input[type="date"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    background: #FAFAFA;
+    transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="date"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #FFFFFF;
+}
+
+.known-value {
+    padding: 10px 12px;
+    min-height: 38px;
+    background: #F4F6F5;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.inline-input {
+    display: inline-block;
+    width: 80px;
+    margin: 0 4px;
+    padding: 4px 8px;
+}
+
+.terms p {
+    margin-bottom: 14px;
+    text-align: justify;
+}
+
+.signatures {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    margin-top: 30px;
+}
+
+.signature-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #FAFAFA;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.signature-image {
+    height: 60px;
+    max-width: 200px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.signature-line {
+    border-bottom: 1px dashed var(--primary);
+    min-height: 60px;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 5px;
+}
+
+canvas.signature-canvas {
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: #FFFFFF;
+    cursor: crosshair;
+    touch-action: none;
+    width: 100%;
+    height: 120px;
+}
+
+.btn-clear-canvas {
+    background: #E2E8E4;
+    color: var(--primary);
+    border: none;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 3px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.2s ease;
+}
+
+.btn-clear-canvas:hover {
+    background: #D0DDD5;
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    background: var(--primary);
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    margin-top: 35px;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button[type="submit"]:hover {
+    background: var(--primary-hover);
+}
+
+.notice {
+    font-size: 0.78rem;
+    color: #888888;
+    text-align: center;
+    margin-top: 15px;
+}
+
+@media (max-width: 650px) {
+    .contract-container { padding: 25px 20px; }
+    .field-grid, .signatures { grid-template-columns: 1fr; }
+    h1 { font-size: 1.8rem; }
+}
+
+@media print {
+    body { background: white; padding: 0; }
+    .contract-container { border: none; box-shadow: none; padding: 0; }
+    button, .btn-clear-canvas, .notice { display: none; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="contract-container">
+
+<header>
+    <h1>Larkwell Photography</h1>
+    <div class="subtitle">Wedding Photography Agreement</div>
+</header>
+
+<!-- Set action to your Make Webhook URL once created in Step 2 -->
+<form id="weddingContract" action="https://hook.us2.make.com/1t1kejpfi149g7kcmdey05yye779j2t2" method="POST" onsubmit="prepareSubmission(event)">
+
+<input type="hidden" id="record_id" name="record_id" value="">
+<input type="hidden" id="client_signature_base64" name="client_signature_base64" required>
+
+<!-- AGREEMENT & PARTIES -->
+<h2>1. Agreement & Parties</h2>
+
+<p style="margin-bottom: 20px;">
+This agreement is entered into on this
+<input class="inline-input" type="text" name="agreement_day" placeholder="Day" required>
+day of
+<input class="inline-input" type="text" name="agreement_month" placeholder="Month" required>,
+20<input class="inline-input" type="text" name="agreement_year" placeholder="YY" maxlength="2" required>,
+between Larkwell Photography and the Client listed below:
+</p>
+
+<div class="field-grid">
+    <div class="field">
+        <label>Client(s) Name</label>
+        <div class="known-value" id="disp_couple_names">Loading...</div>
+    </div>
+
+    <div class="field">
+        <label>Client Email</label>
+        <div class="known-value" id="disp_email">Loading...</div>
+    </div>
+</div>
+
+<!-- EVENT DETAILS -->
+<h2>2. Event Schedule & Locations</h2>
+
+<div class="field-grid">
+    <div class="field">
+        <label>Wedding Date</label>
+        <div class="known-value" id="disp_wedding_date">Loading...</div>
+    </div>
+
+    <div class="field">
+        <label>Coverage Hours</label>
+        <div class="known-value" id="disp_coverage_hours">Loading...</div>
+    </div>
+
+    <div class="field">
+        <label>Ceremony Location</label>
+        <div class="known-value" id="disp_ceremony_loc">Loading...</div>
+    </div>
+
+    <div class="field">
+        <label>Reception Location</label>
+        <div class="known-value" id="disp_reception_loc">Loading...</div>
+    </div>
+</div>
+
+<!-- PACKAGE AND PAYMENT -->
+<h2>3. Package, Fees & Payments</h2>
+
+<div class="field-grid">
+    <div class="field">
+        <label>Selected Package</label>
+        <div class="known-value" id="disp_package">Loading...</div>
+    </div>
+
+    <div class="field">
+        <label>Total Fee ($)</label>
+        <div class="known-value" id="disp_total_fee">Loading...</div>
+    </div>
+
+    <div class="field">
+        <label>Retainer Deposit ($)</label>
+        <div class="known-value" id="disp_retainer">Loading...</div>
+    </div>
+
+    <div class="field">
+        <label>Remaining Balance ($)</label>
+        <div class="known-value" id="disp_balance">Loading...</div>
+    </div>
+
+    <div class="field">
+        <label>Deposit Due Date</label>
+        <div class="known-value">Upon signing</div>
+    </div>
+
+    <div class="field">
+        <label>Balance Due Date</label>
+        <div class="known-value">30 days before wedding day</div>
+    </div>
+</div>
+
+<!-- TERMS -->
+<h2>4. Terms & Conditions</h2>
+
+<div class="terms">
+<p><strong>1. Retainer & Payment:</strong> A non-refundable retainer deposit is required to secure the date. The remaining balance must be paid in full by the due date specified above. If final payment is not received, the Photographer reserves the right to withhold services.</p>
+<p><strong>2. Cancellation & Rescheduling:</strong> If the Client cancels or postpones the wedding, the retainer is forfeited. Notice of cancellation or changes must be given in writing.</p>
+<p><strong>3. Exclusive Photographer:</strong> The Photographer shall be the exclusive professional photographer retained for the event.</p>
+<p><strong>4. Copyright & Usage:</strong> The Photographer retains copyright ownership over all images. The Client is granted a non-exclusive, personal-use licence to print, share, and display the images.</p>
+<p><strong>5. Model Release:</strong> The Client grants the Photographer permission to use the images for promotional, portfolio, website, or studio display purposes unless explicitly opted out in writing.</p>
+<p><strong>6. Delivery Timeline:</strong> High-resolution digital files will be delivered via an online gallery within <strong>8 weeks</strong> following the wedding date.</p>
+<p><strong>7. Limitation of Liability:</strong> Liability is strictly limited to a refund of monies received for the package.</p>
+</div>
+
+<!-- SIGNATURES -->
+<h2>5. Authorization & Execution</h2>
+
+<p style="margin-bottom: 20px;">By signing below, the parties agree to all terms, conditions, and payment schedules outlined in this agreement.</p>
+
+<div class="signatures">
+    <div class="signature-box">
+        <label>Photographer Signature</label>
+        <div class="signature-line">
+            <img class="signature-image" src="data:image/png;base64,{{31.sarah_signature_base64}}" alt="Photographer signature">
+        </div>
+        <label>Sarah Larkwell</label>
+        <label>Date</label>
+        <div class="known-value" id="disp_current_date">November 3, 2026</div>
+    </div>
+
+    <div class="signature-box">
+        <label>Client Name (Printed)</label>
+        <input type="text" name="client_name" placeholder="Type full legal name" required>
+
+        <label>Client Signature</label>
+        <canvas id="signature-pad" class="signature-canvas"></canvas>
+        <button type="button" class="btn-clear-canvas" onclick="clearSignature()">Clear Canvas</button>
+
+        <label>Client Signature Date</label>
+        <input type="date" name="client_signature_date" required>
+    </div>
+</div>
+
+<button type="submit">Submit Signed Contract</button>
+<p class="notice">Please review all information and terms carefully before submitting.</p>
+
+</form>
+</div>
+
+<script>
+    // 1. Extract URL Parameters & Hydrate Page Fields
+    const params = new URLSearchParams(window.location.search);
+
+    document.getElementById('record_id').value = params.get('recordId') || '';
+    document.getElementById('disp_couple_names').innerText = params.get('names') || 'Valued Client';
+    document.getElementById('disp_email').innerText = params.get('email') || 'N/A';
+    document.getElementById('disp_wedding_date').innerText = params.get('date') || 'TBD';
+    document.getElementById('disp_coverage_hours').innerText = params.get('hours') || 'N/A';
+    document.getElementById('disp_ceremony_loc').innerText = params.get('ceremony') || 'TBD';
+    document.getElementById('disp_reception_loc').innerText = params.get('reception') || 'TBD';
+    document.getElementById('disp_package').innerText = params.get('package') || 'Custom Collection';
+    document.getElementById('disp_total_fee').innerText = params.get('total') ? `$${params.get('total')} CAD` : 'TBD';
+    document.getElementById('disp_retainer').innerText = params.get('retainer') ? `$${params.get('retainer')} CAD` : 'TBD';
+    document.getElementById('disp_balance').innerText = params.get('balance') ? `$${params.get('balance')} CAD` : 'TBD';
+
+    // Set today's date formatted
+    const today = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('disp_current_date').innerText = today.toLocaleDateString("en-US", options);
+
+    // 2. Interactive Signature Canvas Setup
+    const canvas = document.getElementById('signature-pad');
+    const ctx = canvas.getContext('2d');
+    let isDrawing = false;
+
+    function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = "#2C3E35";
+    }
+
+    window.addEventListener('load', resizeCanvas);
+    window.addEventListener('resize', resizeCanvas);
+
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseleave', stopDrawing);
+
+    canvas.addEventListener('touchstart', startDrawing);
+    canvas.addEventListener('touchmove', draw);
+    canvas.addEventListener('touchend', stopDrawing);
+
+    function startDrawing(e) {
+        isDrawing = true;
+        ctx.beginPath();
+        const pos = getPos(e);
+        ctx.moveTo(pos.x, pos.y);
+    }
+
+    function draw(e) {
+        if (!isDrawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+    }
+
+    function stopDrawing() { isDrawing = false; }
+
+    function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return { x: clientX - rect.left, y: clientY - rect.top };
+    }
+
+    function clearSignature() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function prepareSubmission(event) {
+        const blank = document.createElement('canvas');
+        blank.width = canvas.width;
+        blank.height = canvas.height;
+        
+        if (canvas.toDataURL() === blank.toDataURL()) {
+            alert('Please draw your signature before submitting.');
+            event.preventDefault();
+            return false;
+        }
+
+        document.getElementById('client_signature_base64').value = canvas.toDataURL('image/png');
+    }
+</script>
+
+</body>
+</html>
