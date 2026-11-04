@@ -303,6 +303,11 @@ between Larkwell Photography and the Client listed below:
     </div>
 
     <div class="field">
+        <label>Venue Name / Location</label>
+        <div class="known-value" id="disp_venue">TBD</div>
+    </div>
+    
+    <div class="field">
         <label>Ceremony Location</label>
         <div class="known-value" id="disp_ceremony_loc">Loading...</div>
     </div>
@@ -405,6 +410,7 @@ between Larkwell Photography and the Client listed below:
     document.getElementById('disp_email').innerText = params.get('email') || 'N/A';
     document.getElementById('disp_wedding_date').innerText = params.get('date') || 'TBD';
     document.getElementById('disp_coverage_hours').innerText = params.get('hours') || 'N/A';
+    document.getElementById('disp_venue').innerText = params.get('venue') || 'N/A';
     document.getElementById('disp_ceremony_loc').innerText = params.get('ceremony') || 'TBD';
     document.getElementById('disp_reception_loc').innerText = params.get('reception') || 'TBD';
     document.getElementById('disp_package').innerText = params.get('package') || 'Custom Collection';
