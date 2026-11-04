@@ -162,11 +162,12 @@ input[type="text"]:focus, input[type="date"]:focus {
     border: 1px solid var(--border-color);
 }
 
-.signature-image {
-    height: 60px;
-    max-width: 200px;
-    object-fit: contain;
-    object-position: left center;
+.photographer-signature {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: 32px;
+    font-style: italic;
+    display: inline-block;
+    padding: 5px 0;
 }
 
 .signature-line {
@@ -375,7 +376,7 @@ between Larkwell Photography and the Client listed below:
     <div class="signature-box">
         <label>Photographer Signature</label>
         <div class="signature-line">
-           <img class="signature-image" id="photographer_signature" alt="Photographer signature">
+          <span class="photographer-signature">Sarah Larkwell</span>
         </div>
         <label>Sarah Larkwell</label>
         <label>Date</label>
@@ -404,13 +405,7 @@ between Larkwell Photography and the Client listed below:
 <script>
     // 1. Extract URL Parameters & Hydrate Page Fields
     const params = new URLSearchParams(window.location.search);
-    const photographerSignature = params.get('photographer_signature');
-
-if (photographerSignature) {
-    document.getElementById('photographer_signature').src =
-        'data:image/png;base64,' + photographerSignature;
-}
-
+    
     document.getElementById('record_id').value = params.get('record_id') || '';
     document.getElementById('disp_couple_names').innerText = params.get('client_name') || 'Valued Client';
     document.getElementById('disp_email').innerText = params.get('client_email') || 'N/A';
