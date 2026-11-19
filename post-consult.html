@@ -119,8 +119,9 @@
     }
 
     .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .grid-3 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 14px; }
     .field { margin-bottom: 16px; }
-    .grid-2 .field { margin-bottom: 0; }
+    .grid-2 .field, .grid-3 .field { margin-bottom: 0; }
     .grid-stack { display: flex; flex-direction: column; gap: 14px; }
 
     label {
@@ -149,6 +150,12 @@
       color: var(--text);
       background-color: #ffffff;
       transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    input[readonly] {
+      background-color: #faf8f5;
+      color: var(--muted);
+      cursor: not-allowed;
     }
 
     select {
@@ -296,7 +303,7 @@
     @media (max-width: 560px) {
       .header { padding: 24px 20px 20px; }
       form { padding: 22px 20px 28px; }
-      .grid-2, .addon-grid { grid-template-columns: 1fr; }
+      .grid-2, .grid-3, .addon-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -426,19 +433,23 @@
       </div>
 
       <div class="grid-stack">
-        <div class="grid-2">
+        <div class="grid-3">
           <div class="field">
             <label for="base_package">Base Package Tier</label>
             <select id="base_package" name="base_package">
-              <option value="essential">Essential Elopement — $2,400 (4 hrs)</option>
-              <option value="classic">Classic Coverage — $3,500 (6 hrs)</option>
-              <option value="signature" selected>Signature Collection — $4,600 (8 hrs)</option>
-              <option value="heirloom">Heirloom Luxury — $5,800 (10 hrs)</option>
+              <option value="essential">Essential Elopement ($2,400 / 4 hrs)</option>
+              <option value="classic">Classic Coverage ($3,500 / 6 hrs)</option>
+              <option value="signature" selected>Signature Collection ($4,600 / 8 hrs)</option>
+              <option value="heirloom">Heirloom Luxury ($5,800 / 10 hrs)</option>
             </select>
           </div>
           <div class="field">
-            <label for="coverage_hours">Confirmed Total Hours <span class="label-hint">(+$450/extra hr)</span></label>
-            <input type="number" id="coverage_hours" name="coverage_hours" min="4" max="16" step="1" value="8" required />
+            <label for="extra_hours">Additional Hours</label>
+            <input type="number" id="extra_hours" name="extra_hours" min="0" max="10" step="1" value="0" />
+          </div>
+          <div class="field">
+            <label for="total_hours_display">Confirmed Total</label>
+            <input type="text" id="total_hours_display" readonly value="8 Hours" />
           </div>
         </div>
 
@@ -719,7 +730,6 @@
     const secCheck = document.getElementById("second_photographer");
     const albCheck = document.getElementById("album_interest");
 
-    // Reset card classes and states
     engCard.classList.remove("locked-included");
     secCard.classList.remove("locked-included");
     albCard.classList.remove("locked-included");
@@ -737,7 +747,6 @@
     albCheck.disabled = false;
 
     if (pkgKey === "signature") {
-      // Signature gives choice of Engagement OR Second Shooter
       if (secCheck.checked) {
         document.getElementById("price_second").textContent = "Included ($0)";
         document.getElementById("price_engagement").textContent = "$550";
@@ -749,7 +758,6 @@
         document.getElementById("price_second").textContent = "$750 (Or Free w/o Eng.)";
       }
     } else if (pkgKey === "heirloom") {
-      // Heirloom includes Second Shooter, Engagement Session, and Album
       engCard.classList.add("locked-included");
       secCard.classList.add("locked-included");
       albCard.classList.add("locked-included");
@@ -776,12 +784,14 @@
     const pkgKey = document.getElementById("base_package").value;
     const pkg = PACKAGES[pkgKey];
 
+    const extraHours = Math.max(0, Number(document.getElementById("extra_hours").value || 0));
+    const totalEffectiveHours = pkg.baseHours + extraHours;
+    document.getElementById("total_hours_display").value = totalEffectiveHours + (totalEffectiveHours === 1 ? " Hour" : " Hours");
+
+    const extraHoursCost = extraHours * RATES.extraHour;
+
     document.getElementById("packageInclusionsNote").textContent = pkg.note;
     updateAddonCardStates();
-
-    const totalHours = Math.max(pkg.baseHours, Number(document.getElementById("coverage_hours").value || pkg.baseHours));
-    const extraHours = Math.max(0, totalHours - pkg.baseHours);
-    const extraHoursCost = extraHours * RATES.extraHour;
 
     const hasEngagement = document.getElementById("engagement_session").checked;
     const hasSecond = document.getElementById("second_photographer").checked;
@@ -796,9 +806,7 @@
     const magnetsCost = hasMagnets ? RATES.magnets : 0;
 
     if (pkgKey === "signature") {
-      // In Signature, whichever option the user checked first gets discounted to $0
       if (hasSecond && hasEngagement) {
-        // If both checked, assume second shooter is included in base, charge for engagement
         secondCost = 0;
         engagementCost = RATES.engagement;
       } else if (hasSecond) {
@@ -840,10 +848,10 @@
     const retainerAmount = Number((finalTotal * 0.35).toFixed(2));
 
     const lines = [];
-    lines.push(`<div class="quote-line"><span>${pkg.name} (${pkg.baseHours} hrs)</span><span>${formatMoney(pkg.price)}</span></div>`);
+    lines.push(`<div class="quote-line"><span>${pkg.name} (${pkg.baseHours} hrs base)</span><span>${formatMoney(pkg.price)}</span></div>`);
 
     if (extraHours > 0) {
-      lines.push(`<div class="quote-line"><span>Additional Coverage (${extraHours} hr × $450)</span><span>${formatMoney(extraHoursCost)}</span></div>`);
+      lines.push(`<div class="quote-line"><span>Additional Hours (${extraHours} hr × $450)</span><span>${formatMoney(extraHoursCost)}</span></div>`);
     }
     if (hasEngagement) {
       lines.push(`<div class="quote-line"><span>Engagement Session</span><span>${engagementCost === 0 ? "Included ($0.00)" : formatMoney(engagementCost)}</span></div>`);
@@ -881,7 +889,9 @@
     return {
       base_package_name: pkg.name,
       base_package_price: pkg.price,
+      base_hours: pkg.baseHours,
       extra_hours: extraHours,
+      total_hours: totalEffectiveHours,
       extra_hours_cost: extraHoursCost,
       engagement_cost: engagementCost,
       second_shooter_cost: secondCost,
@@ -920,7 +930,7 @@
       "ceremony_location",
       "reception_location",
       "base_package",
-      "coverage_hours",
+      "extra_hours",
       "photography_style",
       "editing_preference",
       "coverage_preference",
@@ -981,16 +991,9 @@
       ? `Client: ${coupleDisplay}`
       : "Complete details after client consultation";
 
-    document.getElementById("base_package").addEventListener("change", (e) => {
-      const selectedPkg = PACKAGES[e.target.value];
-      if (selectedPkg) {
-        document.getElementById("coverage_hours").value = selectedPkg.baseHours;
-      }
-      calculateQuote();
-    });
-
     const calcTriggers = [
-      "coverage_hours",
+      "base_package",
+      "extra_hours",
       "distance_km",
       "engagement_session",
       "second_photographer",
@@ -1041,7 +1044,9 @@
       ceremony_location: document.getElementById("ceremony_location").value,
       reception_location: document.getElementById("reception_location").value,
       base_package: document.getElementById("base_package").value,
-      coverage_hours: Number(document.getElementById("coverage_hours").value),
+      base_hours: pricing.base_hours,
+      extra_hours: pricing.extra_hours,
+      coverage_hours: pricing.total_hours,
       engagement_session: document.getElementById("engagement_session").checked ? "Yes" : "No",
       second_photographer: document.getElementById("second_photographer").checked ? "Yes" : "No",
       album_interest: document.getElementById("album_interest").checked ? "Yes" : "No",
