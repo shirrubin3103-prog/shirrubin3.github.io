@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post-Consultation Wrap-Up | Larkwell Wedding Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f3ee;
+      --card: #ffffff;
+      --text: #23201d;
+      --muted: #78716c;
+      --border: #e5dfd7;
+      --border-focus: #8c735b;
+      --primary: #2c2723;
+      --primary-hover: #443d37;
+      --accent: #9f8164;
+      --accent-soft: #f9f6f2;
+      --missing-bg: #fffbeb;
+      --missing-border: #f59e0b;
+      --radius: 10px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.5;
+      padding: 24px 16px 48px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--card);
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(35, 32, 29, 0.06);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(180deg, #faf8f5 0%, #ffffff 100%);
+      padding: 32px 32px 24px;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .studio-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .client-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-top: 4px;
+    }
+
+    form { padding: 28px 32px 36px; }
+    .section { margin-bottom: 32px; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field { margin-bottom: 16px; }
+    .grid-2 .field { margin-bottom: 0; }
+    .grid-stack { display: flex; flex-direction: column; gap: 14px; }
+
+    label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .label-hint { font-weight: 400; color: var(--muted); font-size: 0.78rem; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.94rem;
+      color: var(--text);
+      background-color: #ffffff;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2378716c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--border-focus);
+      box-shadow: 0 0 0 3px rgba(159, 129, 100, 0.14);
+    }
+
+    input.missing-highlight {
+      background-color: var(--missing-bg);
+      border-color: var(--missing-border);
+    }
+
+    .package-note {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      color: var(--text);
+      margin-top: 8px;
+    }
+
+    /* Interactive Add-on Cards */
+    .addon-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .addon-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #ffffff;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.16s ease;
+      margin-bottom: 0;
+    }
+
+    .addon-card:hover { border-color: var(--accent); background: var(--accent-soft); }
+    .addon-left { display: flex; align-items: center; gap: 10px; }
+    .addon-card input[type="checkbox"] { accent-color: var(--primary); width: 17px; height: 17px; cursor: pointer; flex-shrink: 0; }
+    .addon-card:has(input:checked) { background: var(--accent-soft); border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+    .addon-label { font-size: 0.88rem; font-weight: 500; color: var(--text); }
+    .addon-price { font-size: 0.8rem; font-weight: 600; color: var(--accent); white-space: nowrap; }
+
+    /* Included / Locked State */
+    .addon-card.locked-included {
+      background: #faf8f5;
+      border-color: #d1c7bc;
+      cursor: default;
+    }
+    .addon-card.locked-included input[type="checkbox"] { display: none; }
+    .addon-price.included-badge {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    /* Live Quote Summary Card */
+    .quote-box {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .quote-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quote-lines { display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; }
+    .quote-line { display: flex; justify-content: space-between; color: var(--text); }
+    .quote-line.muted { color: var(--muted); }
+    .quote-line.discount { color: #047857; font-weight: 500; }
+
+    .quote-divider { height: 1px; background: var(--border); margin: 10px 0; }
+
+    .quote-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .quote-retainer {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .legend { display: flex; align-items: center; gap: 8px; font-size: 0.8rem; color: var(--muted); margin-bottom: 14px; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 3px; background: var(--missing-bg); border: 1px solid var(--missing-border); display: inline-block; }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 15px 20px;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.18s ease;
+      margin-top: 12px;
+    }
+
+    button[type="submit"]:hover { background: var(--primary-hover); }
+    button[type="submit"]:disabled { background: var(--muted); cursor: not-allowed; }
+
+    .status { margin-top: 18px; padding: 14px 16px; border-radius: var(--radius); display: none; font-size: 0.9rem; font-weight: 500; text-align: center; }
+    .status.success { display: block; background: #ecfdf5; border: 1px solid #a7f3d0; color: #065f46; }
+    .status.error { display: block; background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+
+    @media (max-width: 560px) {
+      .header { padding: 24px 20px 20px; }
+      form { padding: 22px 20px 28px; }
+      .grid-2, .addon-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="studio-tag">Larkwell Wedding Photography • Internal Workflow</div>
+    <h1>Post-Consultation Wrap-Up</h1>
+    <div class="client-badge" id="headerSubtitle">Loading client details...</div>
+  </div>
+
+  <form id="consultForm">
+    <!-- Hidden System Fields -->
+    <input type="hidden" id="record_id" name="record_id" />
+    <input type="hidden" id="telegram_topic_id" name="telegram_topic_id" />
+
+    <!-- Section 1 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">1</span>
+        <span class="section-title">Consultation Outcome</span>
+      </div>
+      <div class="field">
+        <label for="outcome">Next Step</label>
+        <select id="outcome" name="outcome" required>
+          <option value="ready_for_proposal">Moving Forward — Generate Quote &amp; Contract</option>
+          <option value="follow_up_needed">Needs More Time — Send Follow-Up Later</option>
+          <option value="not_moving_forward">Not Moving Forward — Archive Lead</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">2</span>
+        <span class="section-title">Client Details</span>
+      </div>
+      <div class="grid-stack">
+        <div class="grid-2">
+          <div class="field">
+            <label for="client_1_name">Client 1 Name</label>
+            <input type="text" id="client_1_name" name="client_1_name" required />
+          </div>
+          <div class="field">
+            <label for="client_2_name">Client 2 Name</label>
+            <input type="text" id="client_2_name" name="client_2_name" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="client_email">Primary Email</label>
+            <input type="email" id="client_email" name="client_email" required />
+          </div>
+          <div class="field">
+            <label for="secondary_email">Secondary Email <span class="label-hint">(Optional)</span></label>
+            <input type="email" id="secondary_email" name="secondary_email" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="client_phone">Primary Phone Number</label>
+            <input type="tel" id="client_phone" name="client_phone" />
+          </div>
+          <div class="field">
+            <label for="secondary_phone">Secondary Phone Number <span class="label-hint">(Optional)</span></label>
+            <input type="tel" id="secondary_phone" name="secondary_phone" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">3</span>
+        <span class="section-title">Event &amp; Location Logistics</span>
+      </div>
+      <div class="legend">
+        <span class="legend-dot"></span>
+        <span>Highlighted fields were left blank in the inquiry—verify on the call.</span>
+      </div>
+      <div class="grid-stack">
+        <div class="grid-2">
+          <div class="field">
+            <label for="wedding_date">Wedding Date</label>
+            <input type="date" id="wedding_date" name="wedding_date" required />
+          </div>
+          <div class="field">
+            <label for="guest_count">Estimated Guest Count</label>
+            <input type="number" id="guest_count" name="guest_count" min="1" placeholder="Ask on call if blank" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="venue_name">Venue Name</label>
+          <input type="text" id="venue_name" name="venue_name" placeholder="Ask on call if blank" />
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="venue_address">Venue Address</label>
+            <input type="text" id="venue_address" name="venue_address" placeholder="Ask on call if blank" />
+          </div>
+          <div class="field">
+            <label for="distance_km">Round-Trip / One-Way Distance (km) <span class="label-hint">(&gt;30km @ $0.75/km)</span></label>
+            <input type="number" id="distance_km" name="distance_km" min="0" step="1" value="0" />
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="ceremony_location">Ceremonial Location</label>
+            <input type="text" id="ceremony_location" name="ceremony_location" placeholder="Ask on call if blank" />
+          </div>
+          <div class="field">
+            <label for="reception_location">Reception Location</label>
+            <input type="text" id="reception_location" name="reception_location" placeholder="Ask on call if blank" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Base Package & Add-Ons -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">4</span>
+        <span class="section-title">Base Package &amp; Add-Ons</span>
+      </div>
+
+      <div class="grid-stack">
+        <div class="grid-2">
+          <div class="field">
+            <label for="base_package">Base Package Tier</label>
+            <select id="base_package" name="base_package">
+              <option value="essential">Essential Elopement — $2,400 (4 hrs)</option>
+              <option value="classic">Classic Coverage — $3,500 (6 hrs)</option>
+              <option value="signature" selected>Signature Collection — $4,600 (8 hrs)</option>
+              <option value="heirloom">Heirloom Luxury — $5,800 (10 hrs)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="coverage_hours">Confirmed Total Hours <span class="label-hint">(+$450/extra hr)</span></label>
+            <input type="number" id="coverage_hours" name="coverage_hours" min="4" max="16" step="1" value="8" required />
+          </div>
+        </div>
+
+        <div class="package-note" id="packageInclusionsNote">
+          <strong>Signature Collection Includes:</strong> 8 Hours + Second Shooter <em>OR</em> Complimentary Engagement Session.
+        </div>
+
+        <div class="field" style="margin-bottom: 0;">
+          <label>À La Carte &amp; Package Options</label>
+          <div class="addon-grid">
+            <label class="addon-card" id="card_engagement">
+              <div class="addon-left">
+                <input type="checkbox" id="engagement_session" name="engagement_session" />
+                <span class="addon-label">Engagement Session</span>
+              </div>
+              <span class="addon-price" id="price_engagement">$550</span>
+            </label>
+
+            <label class="addon-card" id="card_second">
+              <div class="addon-left">
+                <input type="checkbox" id="second_photographer" name="second_photographer" />
+                <span class="addon-label">Second Shooter</span>
+              </div>
+              <span class="addon-price" id="price_second">$750</span>
+            </label>
+
+            <label class="addon-card" id="card_album">
+              <div class="addon-left">
+                <input type="checkbox" id="album_interest" name="album_interest" />
+                <span class="addon-label">10x10 Heirloom Album</span>
+              </div>
+              <span class="addon-price" id="price_album">$950</span>
+            </label>
+
+            <label class="addon-card">
+              <div class="addon-left">
+                <input type="checkbox" id="print_interest" name="print_interest" />
+                <span class="addon-label">Fine Art Print Box</span>
+              </div>
+              <span class="addon-price">$300</span>
+            </label>
+
+            <label class="addon-card">
+              <div class="addon-left">
+                <input type="checkbox" id="photo_magnets" name="photo_magnets" />
+                <span class="addon-label">Photo Magnets (50)</span>
+              </div>
+              <span class="addon-price">$175</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">5</span>
+        <span class="section-title">Creative &amp; Timeline Preferences</span>
+      </div>
+      <div class="grid-stack">
+        <div class="grid-2">
+          <div class="field">
+            <label for="photography_style">Photography Style</label>
+            <select id="photography_style" name="photography_style">
+              <option value="Undecided">Undecided</option>
+              <option value="Candid / Documentary">Candid / Documentary</option>
+              <option value="Editorial / Modern">Editorial / Modern</option>
+              <option value="Classic / Traditional">Classic / Traditional</option>
+              <option value="Editorial & Candid Mix">Editorial &amp; Candid Mix</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="editing_preference">Editing Preference</label>
+            <select id="editing_preference" name="editing_preference">
+              <option value="Standard Signature">Standard Signature</option>
+              <option value="True to Color">True to Color</option>
+              <option value="Light & Airy">Light &amp; Airy</option>
+              <option value="Warm & Moody">Warm &amp; Moody</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="coverage_preference">Coverage Preference</label>
+            <select id="coverage_preference" name="coverage_preference">
+              <option value="Full Day (Prep to Reception)">Full Day (Prep to Reception)</option>
+              <option value="Ceremony & Reception Only">Ceremony &amp; Reception Only</option>
+              <option value="Ceremony & Portraits Only">Ceremony &amp; Portraits Only</option>
+              <option value="Elopement / Intimate">Elopement / Intimate</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="first_look_preference">First Look Preference</label>
+            <select id="first_look_preference" name="first_look_preference">
+              <option value="Undecided">Undecided</option>
+              <option value="Yes - Doing a First Look">Yes — Doing a First Look</option>
+              <option value="No - Waiting for Ceremony">No — Waiting for Ceremony</option>
+              <option value="First Touch Only">First Touch Only</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="getting_ready_details">Getting Ready Location</label>
+            <select id="getting_ready_details" name="getting_ready_details">
+              <option value="Not Discussed">Not Discussed</option>
+              <option value="At Venue">At Venue</option>
+              <option value="Hotel / Airbnb">Hotel / Airbnb</option>
+              <option value="Private Residence">Private Residence</option>
+              <option value="Not Needed">Not Needed</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="wedding_timeline">Rough Timeline</label>
+            <select id="wedding_timeline" name="wedding_timeline">
+              <option value="Not Set Yet">Not Set Yet</option>
+              <option value="Morning / Brunch Wedding">Morning / Brunch Wedding</option>
+              <option value="Afternoon Ceremony & Evening Reception">Afternoon Ceremony &amp; Evening Reception</option>
+              <option value="Sunset / Evening Ceremony">Sunset / Evening Ceremony</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="important_moments">Key Priority Moments</label>
+            <select id="important_moments" name="important_moments">
+              <option value="Standard Full Coverage">Standard Full Coverage</option>
+              <option value="Couple Portraits & Golden Hour">Couple Portraits &amp; Golden Hour</option>
+              <option value="Large Family & Group Formals">Large Family &amp; Group Formals</option>
+              <option value="Candid Guest & Reception Party">Candid Guest &amp; Reception Party</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="additional_events_traditions">Additional Events / Traditions</label>
+            <select id="additional_events_traditions" name="additional_events_traditions">
+              <option value="None">None</option>
+              <option value="Rehearsal Dinner">Rehearsal Dinner</option>
+              <option value="Cultural / Religious Ceremony Traditions">Cultural / Religious Traditions</option>
+              <option value="Multi-Day Celebration">Multi-Day Celebration</option>
+              <option value="Sparkler / Grand Exit">Sparkler / Grand Exit</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 6: Discounts, Surcharges & Live Quote Summary -->
+    <div class="section" style="margin-bottom: 24px;">
+      <div class="section-header">
+        <span class="section-num">6</span>
+        <span class="section-title">Discounts, Surcharges &amp; Live Quote</span>
+      </div>
+      <div class="grid-stack">
+        <div class="grid-2">
+          <div class="field">
+            <label for="discount_percent">Discount (%)</label>
+            <select id="discount_percent" name="discount_percent">
+              <option value="0" selected>0% — Standard Rate</option>
+              <option value="5">5% Off</option>
+              <option value="10">10% Off</option>
+              <option value="15">15% Off</option>
+              <option value="20">20% Off</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="include_gst">Alberta GST (5%)</label>
+            <select id="include_gst" name="include_gst">
+              <option value="yes" selected>Add 5% GST</option>
+              <option value="no">No Tax (0%)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="field">
+            <label for="extra_fee_reason">Extra Surcharge Reason</label>
+            <select id="extra_fee_reason" name="extra_fee_reason">
+              <option value="None" selected>None</option>
+              <option value="Holiday Weekend Surcharge">Holiday Weekend Surcharge</option>
+              <option value="Overnight Hotel / Travel Per Diem">Overnight Hotel / Travel Per Diem</option>
+              <option value="Multi-Day Event Coverage">Multi-Day Event Coverage</option>
+              <option value="Split-Day / Idle Gap Fee">Split-Day / Idle Gap Fee</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="extra_fee_amount">Extra Surcharge Amount ($)</label>
+            <input type="number" id="extra_fee_amount" name="extra_fee_amount" value="0" min="0" step="1" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="special_requests">Special Requests &amp; Notes</label>
+          <textarea id="special_requests" name="special_requests" rows="2" placeholder="Any specific timeline notes or contract details..."></textarea>
+        </div>
+      </div>
+
+      <!-- Live Itemized Quote Preview -->
+      <div class="quote-box">
+        <div class="quote-title">
+          <span>Calculated Investment Summary</span>
+          <span style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.78rem; font-weight: 600; color: var(--accent);">CAD ($)</span>
+        </div>
+        <div class="quote-lines" id="quoteLines"></div>
+        <div class="quote-divider"></div>
+        <div class="quote-total">
+          <span>Total Investment</span>
+          <span id="displayTotal">$0.00</span>
+        </div>
+        <div class="quote-retainer">
+          <span>35% Retainer Due at Signing</span>
+          <span id="displayRetainer">$0.00</span>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" id="submitBtn">Submit &amp; Send Quote to Telegram</button>
+  </form>
+
+  <div id="statusMessage" class="status"></div>
+</div>
+
+<script>
+  const DEFAULT_WEBHOOK_URL = "https://hook.us2.make.com/YOUR_SCENARIO_2_WEBHOOK";
+
+  const PACKAGES = {
+    essential: {
+      name: "Essential Elopement / Petite",
+      price: 2400,
+      baseHours: 4,
+      note: "Essential Elopement Includes: 4 Continuous Hours, Lead Photographer, Edited Gallery."
+    },
+    classic: {
+      name: "Classic Coverage",
+      price: 3500,
+      baseHours: 6,
+      note: "Classic Coverage Includes: 6 Continuous Hours, Lead Photographer, Edited Gallery."
+    },
+    signature: {
+      name: "Signature Collection",
+      price: 4600,
+      baseHours: 8,
+      note: "Signature Collection Includes: 8 Hours + Second Shooter OR Complimentary Engagement Session."
+    },
+    heirloom: {
+      name: "Heirloom Luxury Collection",
+      price: 5800,
+      baseHours: 10,
+      note: "Heirloom Luxury Includes: 10 Hours + Second Shooter + Engagement Session + 10x10 Fine Art Album."
+    }
+  };
+
+  const RATES = {
+    extraHour: 450,
+    engagement: 550,
+    secondShooter: 750,
+    album: 950,
+    prints: 300,
+    magnets: 175,
+    freeRadiusKm: 30,
+    perKmRate: 0.75
+  };
+
+  function formatMoney(num) {
+    return "$" + num.toLocaleString("en-CA", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function updateAddonCardStates() {
+    const pkgKey = document.getElementById("base_package").value;
+    const engCard = document.getElementById("card_engagement");
+    const secCard = document.getElementById("card_second");
+    const albCard = document.getElementById("card_album");
+
+    const engCheck = document.getElementById("engagement_session");
+    const secCheck = document.getElementById("second_photographer");
+    const albCheck = document.getElementById("album_interest");
+
+    // Reset card classes and states
+    engCard.classList.remove("locked-included");
+    secCard.classList.remove("locked-included");
+    albCard.classList.remove("locked-included");
+
+    document.getElementById("price_engagement").className = "addon-price";
+    document.getElementById("price_second").className = "addon-price";
+    document.getElementById("price_album").className = "addon-price";
+
+    document.getElementById("price_engagement").textContent = "$550";
+    document.getElementById("price_second").textContent = "$750";
+    document.getElementById("price_album").textContent = "$950";
+
+    engCheck.disabled = false;
+    secCheck.disabled = false;
+    albCheck.disabled = false;
+
+    if (pkgKey === "signature") {
+      // Signature gives choice of Engagement OR Second Shooter
+      if (secCheck.checked) {
+        document.getElementById("price_second").textContent = "Included ($0)";
+        document.getElementById("price_engagement").textContent = "$550";
+      } else if (engCheck.checked) {
+        document.getElementById("price_engagement").textContent = "Included ($0)";
+        document.getElementById("price_second").textContent = "$750";
+      } else {
+        document.getElementById("price_engagement").textContent = "$550 (Or Free w/o 2nd)";
+        document.getElementById("price_second").textContent = "$750 (Or Free w/o Eng.)";
+      }
+    } else if (pkgKey === "heirloom") {
+      // Heirloom includes Second Shooter, Engagement Session, and Album
+      engCard.classList.add("locked-included");
+      secCard.classList.add("locked-included");
+      albCard.classList.add("locked-included");
+
+      engCheck.checked = true;
+      secCheck.checked = true;
+      albCheck.checked = true;
+
+      engCheck.disabled = true;
+      secCheck.disabled = true;
+      albCheck.disabled = true;
+
+      document.getElementById("price_engagement").className = "addon-price included-badge";
+      document.getElementById("price_second").className = "addon-price included-badge";
+      document.getElementById("price_album").className = "addon-price included-badge";
+
+      document.getElementById("price_engagement").textContent = "Included in Tier";
+      document.getElementById("price_second").textContent = "Included in Tier";
+      document.getElementById("price_album").textContent = "Included in Tier";
+    }
+  }
+
+  function calculateQuote() {
+    const pkgKey = document.getElementById("base_package").value;
+    const pkg = PACKAGES[pkgKey];
+
+    document.getElementById("packageInclusionsNote").textContent = pkg.note;
+    updateAddonCardStates();
+
+    const totalHours = Math.max(pkg.baseHours, Number(document.getElementById("coverage_hours").value || pkg.baseHours));
+    const extraHours = Math.max(0, totalHours - pkg.baseHours);
+    const extraHoursCost = extraHours * RATES.extraHour;
+
+    const hasEngagement = document.getElementById("engagement_session").checked;
+    const hasSecond = document.getElementById("second_photographer").checked;
+    const hasAlbum = document.getElementById("album_interest").checked;
+    const hasPrints = document.getElementById("print_interest").checked;
+    const hasMagnets = document.getElementById("photo_magnets").checked;
+
+    let engagementCost = hasEngagement ? RATES.engagement : 0;
+    let secondCost = hasSecond ? RATES.secondShooter : 0;
+    let albumCost = hasAlbum ? RATES.album : 0;
+    const printsCost = hasPrints ? RATES.prints : 0;
+    const magnetsCost = hasMagnets ? RATES.magnets : 0;
+
+    if (pkgKey === "signature") {
+      // In Signature, whichever option the user checked first gets discounted to $0
+      if (hasSecond && hasEngagement) {
+        // If both checked, assume second shooter is included in base, charge for engagement
+        secondCost = 0;
+        engagementCost = RATES.engagement;
+      } else if (hasSecond) {
+        secondCost = 0;
+      } else if (hasEngagement) {
+        engagementCost = 0;
+      }
+    } else if (pkgKey === "heirloom") {
+      secondCost = 0;
+      engagementCost = 0;
+      albumCost = 0;
+    }
+
+    const distanceKm = Math.max(0, Number(document.getElementById("distance_km").value || 0));
+    const billableKm = Math.max(0, distanceKm - RATES.freeRadiusKm);
+    const travelFee = Number((billableKm * RATES.perKmRate).toFixed(2));
+
+    const extraFeeAmount = Math.max(0, Number(document.getElementById("extra_fee_amount").value || 0));
+    const extraFeeReason = document.getElementById("extra_fee_reason").value;
+
+    const subtotalBeforeDiscount =
+      pkg.price +
+      extraHoursCost +
+      engagementCost +
+      secondCost +
+      albumCost +
+      printsCost +
+      magnetsCost +
+      travelFee +
+      extraFeeAmount;
+
+    const discountPercent = Number(document.getElementById("discount_percent").value || 0);
+    const discountAmount = Number((subtotalBeforeDiscount * (discountPercent / 100)).toFixed(2));
+    const discountedSubtotal = Number((subtotalBeforeDiscount - discountAmount).toFixed(2));
+
+    const includeGst = document.getElementById("include_gst").value === "yes";
+    const gstAmount = includeGst ? Number((discountedSubtotal * 0.05).toFixed(2)) : 0;
+    const finalTotal = Number((discountedSubtotal + gstAmount).toFixed(2));
+    const retainerAmount = Number((finalTotal * 0.35).toFixed(2));
+
+    const lines = [];
+    lines.push(`<div class="quote-line"><span>${pkg.name} (${pkg.baseHours} hrs)</span><span>${formatMoney(pkg.price)}</span></div>`);
+
+    if (extraHours > 0) {
+      lines.push(`<div class="quote-line"><span>Additional Coverage (${extraHours} hr × $450)</span><span>${formatMoney(extraHoursCost)}</span></div>`);
+    }
+    if (hasEngagement) {
+      lines.push(`<div class="quote-line"><span>Engagement Session</span><span>${engagementCost === 0 ? "Included ($0.00)" : formatMoney(engagementCost)}</span></div>`);
+    }
+    if (hasSecond) {
+      lines.push(`<div class="quote-line"><span>Second Professional Shooter</span><span>${secondCost === 0 ? "Included ($0.00)" : formatMoney(secondCost)}</span></div>`);
+    }
+    if (hasAlbum) {
+      lines.push(`<div class="quote-line"><span>10x10 Handcrafted Heirloom Album</span><span>${albumCost === 0 ? "Included ($0.00)" : formatMoney(albumCost)}</span></div>`);
+    }
+    if (hasPrints) {
+      lines.push(`<div class="quote-line"><span>Archival Fine Art Print Box Set</span><span>${formatMoney(printsCost)}</span></div>`);
+    }
+    if (hasMagnets) {
+      lines.push(`<div class="quote-line"><span>Photo Keepsake Magnets (Set of 50)</span><span>${formatMoney(magnetsCost)}</span></div>`);
+    }
+    if (travelFee > 0) {
+      lines.push(`<div class="quote-line"><span>Travel Fee (${billableKm} billable km × $0.75)</span><span>${formatMoney(travelFee)}</span></div>`);
+    }
+    if (extraFeeAmount > 0) {
+      const label = extraFeeReason !== "None" ? extraFeeReason : "Custom Surcharge";
+      lines.push(`<div class="quote-line"><span>${label}</span><span>${formatMoney(extraFeeAmount)}</span></div>`);
+    }
+    if (discountAmount > 0) {
+      lines.push(`<div class="quote-line discount"><span>Discount (${discountPercent}% Off)</span><span>-${formatMoney(discountAmount)}</span></div>`);
+    }
+    if (includeGst) {
+      lines.push(`<div class="quote-line muted"><span>Alberta GST (5%)</span><span>${formatMoney(gstAmount)}</span></div>`);
+    }
+
+    document.getElementById("quoteLines").innerHTML = lines.join("");
+    document.getElementById("displayTotal").textContent = formatMoney(finalTotal);
+    document.getElementById("displayRetainer").textContent = formatMoney(retainerAmount);
+
+    return {
+      base_package_name: pkg.name,
+      base_package_price: pkg.price,
+      extra_hours: extraHours,
+      extra_hours_cost: extraHoursCost,
+      engagement_cost: engagementCost,
+      second_shooter_cost: secondCost,
+      album_cost: albumCost,
+      prints_cost: printsCost,
+      magnets_cost: magnetsCost,
+      distance_km: distanceKm,
+      travel_fee: travelFee,
+      subtotal_before_discount: subtotalBeforeDiscount,
+      discount_percent: discountPercent,
+      discount_amount: discountAmount,
+      discounted_subtotal: discountedSubtotal,
+      gst_amount: gstAmount,
+      final_total: finalTotal,
+      retainer_amount: retainerAmount
+    };
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const params = new URLSearchParams(window.location.search);
+
+    const fieldIds = [
+      "record_id",
+      "telegram_topic_id",
+      "client_1_name",
+      "client_2_name",
+      "client_email",
+      "secondary_email",
+      "client_phone",
+      "secondary_phone",
+      "wedding_date",
+      "guest_count",
+      "venue_name",
+      "venue_address",
+      "distance_km",
+      "ceremony_location",
+      "reception_location",
+      "base_package",
+      "coverage_hours",
+      "photography_style",
+      "editing_preference",
+      "coverage_preference",
+      "first_look_preference",
+      "getting_ready_details",
+      "wedding_timeline",
+      "important_moments",
+      "additional_events_traditions",
+      "special_requests"
+    ];
+
+    fieldIds.forEach((key) => {
+      const el = document.getElementById(key);
+      if (!el) return;
+
+      const val = params.get(key);
+      if (val !== null && val !== "") {
+        el.value = val;
+      } else if (el.tagName === "INPUT" && (el.type === "text" || el.type === "tel" || el.type === "email" || el.id === "guest_count")) {
+        el.classList.add("missing-highlight");
+      }
+
+      el.addEventListener("input", () => {
+        if (el.value.trim() !== "") {
+          el.classList.remove("missing-highlight");
+        }
+      });
+    });
+
+    if (!params.get("base_package") && params.get("coverage_hours")) {
+      const hrs = Number(params.get("coverage_hours"));
+      const pkgSelect = document.getElementById("base_package");
+      if (hrs <= 4) pkgSelect.value = "essential";
+      else if (hrs <= 6) pkgSelect.value = "classic";
+      else if (hrs <= 8) pkgSelect.value = "signature";
+      else pkgSelect.value = "heirloom";
+    }
+
+    const addonFields = [
+      "engagement_session",
+      "second_photographer",
+      "album_interest",
+      "print_interest",
+      "photo_magnets"
+    ];
+
+    addonFields.forEach((key) => {
+      const val = (params.get(key) || "").toLowerCase().trim();
+      if (val === "yes" || val === "true" || val === "1") {
+        document.getElementById(key).checked = true;
+      }
+    });
+
+    const c1 = params.get("client_1_name");
+    const c2 = params.get("client_2_name");
+    const coupleDisplay = [c1, c2].filter(Boolean).join(" & ");
+    document.getElementById("headerSubtitle").textContent = coupleDisplay
+      ? `Client: ${coupleDisplay}`
+      : "Complete details after client consultation";
+
+    document.getElementById("base_package").addEventListener("change", (e) => {
+      const selectedPkg = PACKAGES[e.target.value];
+      if (selectedPkg) {
+        document.getElementById("coverage_hours").value = selectedPkg.baseHours;
+      }
+      calculateQuote();
+    });
+
+    const calcTriggers = [
+      "coverage_hours",
+      "distance_km",
+      "engagement_session",
+      "second_photographer",
+      "album_interest",
+      "print_interest",
+      "photo_magnets",
+      "discount_percent",
+      "include_gst",
+      "extra_fee_reason",
+      "extra_fee_amount"
+    ];
+
+    calcTriggers.forEach((id) => {
+      document.getElementById(id).addEventListener("change", calculateQuote);
+      document.getElementById(id).addEventListener("input", calculateQuote);
+    });
+
+    calculateQuote();
+  });
+
+  document.getElementById("consultForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById("submitBtn");
+    const status = document.getElementById("statusMessage");
+    btn.disabled = true;
+    btn.textContent = "Sending to Make.com...";
+    status.className = "status";
+
+    const params = new URLSearchParams(window.location.search);
+    const webhookUrl = params.get("webhook") || DEFAULT_WEBHOOK_URL;
+    const guestCountVal = document.getElementById("guest_count").value;
+    const pricing = calculateQuote();
+
+    const payload = {
+      record_id: document.getElementById("record_id").value,
+      telegram_topic_id: document.getElementById("telegram_topic_id").value,
+      outcome: document.getElementById("outcome").value,
+      client_1_name: document.getElementById("client_1_name").value,
+      client_2_name: document.getElementById("client_2_name").value,
+      client_email: document.getElementById("client_email").value,
+      secondary_email: document.getElementById("secondary_email").value,
+      client_phone: document.getElementById("client_phone").value,
+      secondary_phone: document.getElementById("secondary_phone").value,
+      wedding_date: document.getElementById("wedding_date").value,
+      guest_count: guestCountVal ? Number(guestCountVal) : null,
+      venue_name: document.getElementById("venue_name").value,
+      venue_address: document.getElementById("venue_address").value,
+      ceremony_location: document.getElementById("ceremony_location").value,
+      reception_location: document.getElementById("reception_location").value,
+      base_package: document.getElementById("base_package").value,
+      coverage_hours: Number(document.getElementById("coverage_hours").value),
+      engagement_session: document.getElementById("engagement_session").checked ? "Yes" : "No",
+      second_photographer: document.getElementById("second_photographer").checked ? "Yes" : "No",
+      album_interest: document.getElementById("album_interest").checked ? "Yes" : "No",
+      print_interest: document.getElementById("print_interest").checked ? "Yes" : "No",
+      photo_magnets: document.getElementById("photo_magnets").checked ? "Yes" : "No",
+      photography_style: document.getElementById("photography_style").value,
+      editing_preference: document.getElementById("editing_preference").value,
+      coverage_preference: document.getElementById("coverage_preference").value,
+      first_look_preference: document.getElementById("first_look_preference").value,
+      getting_ready_details: document.getElementById("getting_ready_details").value,
+      wedding_timeline: document.getElementById("wedding_timeline").value,
+      important_moments: document.getElementById("important_moments").value,
+      additional_events_traditions: document.getElementById("additional_events_traditions").value,
+      extra_fee_reason: document.getElementById("extra_fee_reason").value,
+      extra_fee_amount: Number(document.getElementById("extra_fee_amount").value || 0),
+      special_requests: document.getElementById("special_requests").value,
+      pricing: pricing
+    };
+
+    try {
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        status.textContent = "Submitted! Calculated quote sent to Telegram for final approval.";
+        status.classList.add("success");
+        btn.textContent = "Submitted";
+      } else {
+        throw new Error(`Server responded with ${response.status}`);
+      }
+    } catch (err) {
+      status.textContent = "Error sending data. Check your webhook URL or internet connection.";
+      status.classList.add("error");
+      btn.disabled = false;
+      btn.textContent = "Retry Submission";
+    }
+  });
+</script>
+
+</body>
+</html>
