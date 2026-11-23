@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Larkwell Wedding Photography — Consultation & Quote Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at 15% 15%, #f7f3ec 0%, #ebe4d8 55%, #e2d8c9 100%);
+      --surface: #ffffff;
+      --surface-ivory: #fbf9f6;
+      --surface-sand: #f4efe7;
+      --ink: #241f1c;
+      --ink-secondary: #5c534d;
+      --ink-muted: #8a7f77;
+      --accent: #7d563f;
+      --accent-hover: #63422f;
+      --gold: #b49263;
+      --border: #e6dfd5;
+      --border-strong: #d5cabd;
+      --free-bg: #eef7f2;
+      --free-text: #1c643e;
+      --free-border: #bfe2ce;
+      --busy-bg: #fdf1ef;
+      --busy-text: #962b2b;
+      --busy-border: #f2c3bd;
+      --shadow-lg: 0 24px 60px rgba(36, 31, 28, 0.12), 0 4px 16px rgba(36, 31, 28, 0.05);
+      --radius-xl: 22px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--ink);
+      font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .widget-shell {
+      width: 100%;
+      max-width: 570px;
+      background: var(--surface);
+      border: 1px solid rgba(213, 202, 189, 0.7);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 780px;
+      max-height: 92vh;
+    }
+
+    .widget-header {
+      background: linear-gradient(180deg, #fcfaf7 0%, #f5efe6 100%);
+      padding: 20px 24px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand-block { display: flex; align-items: center; gap: 14px; }
+
+    .brand-monogram {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fcfaf7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 20px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .brand-info h1 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+    }
+
+    .brand-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--ink-secondary);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2f855a;
+      display: inline-block;
+    }
+
+    .icon-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink-secondary);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 7px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+    .progress-wrap { margin-top: 16px; }
+
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink-muted);
+      margin-bottom: 6px;
+    }
+
+    .progress-track {
+      height: 4px;
+      width: 100%;
+      background: var(--border);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--accent) 100%);
+      transition: width 0.35s ease;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .msg-row { display: flex; flex-direction: column; max-width: 86%; }
+    .msg-row.bot { align-self: flex-start; }
+    .msg-row.user { align-self: flex-end; align-items: flex-end; }
+
+    .msg-sender {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      margin-bottom: 4px;
+      padding: 0 4px;
+    }
+
+    .msg-bubble {
+      padding: 13px 16px;
+      border-radius: 16px;
+      font-size: 14px;
+      line-height: 1.55;
+      word-wrap: break-word;
+    }
+
+    .msg-row.bot .msg-bubble {
+      background: var(--surface-sand);
+      color: var(--ink);
+      border-top-left-radius: 4px;
+      border: 1px solid rgba(229, 221, 211, 0.6);
+    }
+
+    .msg-row.user .msg-bubble {
+      background: var(--accent);
+      color: #ffffff;
+      border-top-right-radius: 4px;
+    }
+
+    .typing-dots { display: inline-flex; align-items: center; gap: 5px; padding: 4px 2px; }
+    .typing-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.35;
+      animation: pulseDot 1.25s infinite ease-in-out;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes pulseDot {
+      0%, 80%, 100% { opacity: 0.3; transform: translateY(0) scale(0.9); }
+      40% { opacity: 1; transform: translateY(-2px) scale(1.15); }
+    }
+
+    .availability-card {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .availability-card.free { background: var(--free-bg); border: 1px solid var(--free-border); color: var(--free-text); }
+    .availability-card.busy { background: var(--busy-bg); border: 1px solid var(--busy-border); color: var(--busy-text); }
+    .availability-title { font-weight: 700; font-size: 13px; margin-bottom: 2px; }
+    .availability-desc { font-size: 12.5px; line-height: 1.45; }
+
+    .summary-card {
+      margin-top: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 13px;
+    }
+
+    .summary-card-header {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .summary-grid { display: grid; grid-template-columns: 125px 1fr; gap: 7px 10px; font-size: 12.5px; }
+    .summary-label { color: var(--ink-muted); font-weight: 500; }
+    .summary-val { color: var(--ink); font-weight: 600; }
+
+    .submit-inquiry-btn {
+      margin-top: 14px;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .submit-inquiry-btn:hover { background: var(--accent-hover); }
+    .submit-inquiry-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+    .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 24px 14px; }
+    .quick-replies:empty { display: none; }
+
+    .chip {
+      background: var(--surface-ivory);
+      border: 1px solid var(--border-strong);
+      color: var(--ink);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .chip:hover { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+
+    .chat-input-area {
+      border-top: 1px solid var(--border);
+      padding: 14px 20px 16px;
+      background: var(--surface-ivory);
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input-area input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid var(--border-strong);
+      border-radius: 12px;
+      font-size: 14px;
+      font-family: inherit;
+      background: var(--surface);
+    }
+
+    .send-btn {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      height: 44px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .send-btn:hover { background: var(--accent-hover); }
+    .send-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+  </style>
+</head>
+<body>
+  <div class="widget-shell">
+    <div class="widget-header">
+      <div class="header-top">
+        <div class="brand-block">
+          <div class="brand-monogram">LW</div>
+          <div class="brand-info">
+            <h1>Larkwell Wedding Photography</h1>
+            <div class="brand-meta">
+              <span class="live-dot"></span>
+              <span>Edmonton, AB • Consultation &amp; Quote Studio</span>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="icon-btn" id="resetChatBtn">Restart</button>
+      </div>
+      <div class="progress-wrap">
+        <div class="progress-labels">
+          <span id="stepLabel">Step 1 of 5 • Your Names</span>
+          <span id="stepPercent">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-messages" id="chatMessages"></div>
+    <div class="quick-replies" id="quickReplies"></div>
+
+    <form class="chat-input-area" id="chatForm">
+      <input type="text" id="userInput" placeholder="Type your answer or ask a question..." autocomplete="off" />
+      <button type="submit" class="send-btn" id="sendBtn">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const PHOTOGRAPHER_ID = "sarah_larkwell";
+
+    // Replace YOUR_SUBDOMAIN with your actual Cloudflare Worker subdomain
+    const WORKER_BASE_URL = "https://larkwell-widget-proxy.YOUR_SUBDOMAIN.workers.dev";
+
+    const API_ROUTES = {
+      availability: `${WORKER_BASE_URL}/api/availability`,
+      submit: `${WORKER_BASE_URL}/api/submit`,
+      llm: `${WORKER_BASE_URL}/api/llm`
+    };
+
+    const chatMessages = document.getElementById("chatMessages");
+    const quickReplies = document.getElementById("quickReplies");
+    const chatForm = document.getElementById("chatForm");
+    const userInput = document.getElementById("userInput");
+    const sendBtn = document.getElementById("sendBtn");
+    const stepLabel = document.getElementById("stepLabel");
+    const stepPercent = document.getElementById("stepPercent");
+    const progressFill = document.getElementById("progressFill");
+
+    document.getElementById("resetChatBtn").addEventListener("click", startConversation);
+
+    let answers = {};
+    let coupleNamesVar = "";
+    let clientEmailVar = "";
+    let weddingDateVar = "";
+    let dateStatusVar = "";
+    let isOccupiedVar = null;
+    let coveragePackageVar = "";
+    let consultationPreferenceVar = "";
+
+    let stepIndex = 0;
+    let awaitingSubmit = false;
+    let submittedDone = false;
+
+    const STEPS = [
+      {
+        key: "couple_names",
+        title: "Your Names",
+        inputType: "text",
+        question: "Congratulations on your engagement! Welcome to <strong>Larkwell Wedding Photography</strong>—may I ask your name and your partner's name?",
+        placeholder: "e.g., Jordan & Taylor"
+      },
+      {
+        key: "email",
+        title: "Contact Email",
+        inputType: "email",
+        question: "Where can I send your consultation notes and tailored quote?",
+        placeholder: "e.g., jordan.taylor@example.com",
+        validate: (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val) || "Please share a valid email address."
+      },
+      {
+        key: "wedding_date",
+        title: "Wedding Date",
+        inputType: "date",
+        question: "When are you planning to say \"I do\"? I will check calendar availability before moving on.",
+        placeholder: "YYYY-MM-DD",
+        validate: (val) => /^\d{4}-\d{2}-\d{2}$/.test(val) || "Please choose a valid date (YYYY-MM-DD)."
+      },
+      {
+        key: "coverage_package",
+        title: "Coverage Hours",
+        inputType: "text",
+        question: "How many hours of photography coverage are you looking for?",
+        placeholder: "e.g., 6 hrs, 9 hrs, or Not sure yet",
+        choices: ["4 hrs", "6 hrs", "8 hrs", "10 hrs", "Not sure yet"]
+      },
+      {
+        key: "consultation_preference",
+        title: "Consultation Time",
+        inputType: "text",
+        question: "When would feel easiest for a consultation chat with Sarah?",
+        placeholder: "e.g., Weekday evenings or Sunday afternoon",
+        choices: ["Weekday evenings", "Sunday afternoon", "Flexible / Any time"]
+      }
+    ];
+
+    function stripReasoningTags(text = "") {
+      return text.replace(/<think>[\s\S]*?<\/think>/gi, "").trim();
+    }
+
+    function setCapturedValue(key, value) {
+      answers[key] = value;
+      if (key === "couple_names") coupleNamesVar = value;
+      if (key === "email") clientEmailVar = value;
+      if (key === "wedding_date") weddingDateVar = value;
+      if (key === "coverage_package") coveragePackageVar = value;
+      if (key === "consultation_preference") consultationPreferenceVar = value;
+    }
+
+    function updateProgress() {
+      const total = STEPS.length;
+      const pct = awaitingSubmit || submittedDone ? 100 : Math.min(100, Math.round((stepIndex / total) * 100));
+      progressFill.style.width = `${pct}%`;
+      stepPercent.textContent = `${pct}%`;
+      stepLabel.textContent = stepIndex < total
+        ? `Step ${stepIndex + 1} of ${total} • ${STEPS[stepIndex].title}`
+        : submittedDone ? "Submitted • Sent to Sarah" : "Review & Submit • Ready";
+    }
+
+    function createTypingBubble(labelText = "") {
+      const row = document.createElement("div");
+      row.className = "msg-row bot";
+      const sender = document.createElement("div");
+      sender.className = "msg-sender";
+      sender.textContent = "Larkwell Studio";
+      const bubble = document.createElement("div");
+      bubble.className = "msg-bubble";
+      bubble.innerHTML =
+        (labelText ? `<span style="margin-right:8px; color:var(--ink-secondary); font-size:13px;">${labelText}</span>` : "") +
+        `<span class="typing-dots"><span></span><span></span><span></span></span>`;
+      row.appendChild(sender);
+      row.appendChild(bubble);
+      chatMessages.appendChild(row);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return {
+        setHtml: (html) => { bubble.innerHTML = html; chatMessages.scrollTop = chatMessages.scrollHeight; },
+        remove: () => row.remove()
+      };
+    }
+
+    function addBotMessage(htmlContent) {
+      const row = document.createElement("div");
+      row.className = "msg-row bot";
+      const sender = document.createElement("div");
+      sender.className = "msg-sender";
+      sender.textContent = "Larkwell Studio";
+      const bubble = document.createElement("div");
+      bubble.className = "msg-bubble";
+      bubble.innerHTML = htmlContent;
+      row.appendChild(sender);
+      row.appendChild(bubble);
+      chatMessages.appendChild(row);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      return bubble;
+    }
+
+    function addUserMessage(text) {
+      const row = document.createElement("div");
+      row.className = "msg-row user";
+      const bubble = document.createElement("div");
+      bubble.className = "msg-bubble";
+      bubble.textContent = text;
+      row.appendChild(bubble);
+      chatMessages.appendChild(row);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function configureInputForStep(step) {
+      userInput.type = step.inputType || "text";
+      if (step.inputType === "date") userInput.min = new Date().toISOString().split("T")[0];
+      else userInput.removeAttribute("min");
+      userInput.disabled = false;
+      sendBtn.disabled = false;
+      userInput.placeholder = step.placeholder || "Type your answer...";
+      userInput.focus();
+    }
+
+    function setInputDisabled(placeholderText) {
+      userInput.disabled = true;
+      sendBtn.disabled = true;
+      userInput.placeholder = placeholderText;
+    }
+
+    function renderQuickReplies(choices = []) {
+      quickReplies.innerHTML = "";
+      choices.forEach((choice) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chip";
+        btn.textContent = choice;
+        btn.addEventListener("click", () => handleUserAnswer(choice));
+        quickReplies.appendChild(btn);
+      });
+    }
+
+    function fallbackCleanNames(raw) {
+      return raw
+        .replace(/^(hi+|hello|hey)[^a-zA-Z0-9]*\s*(how are you\??)?/i, "")
+        .replace(/^(our names are( as follows| as followed)?|my name is|we are)[:\s-]*/i, "")
+        .trim() || raw.trim();
+    }
+
+    function fallbackCoverage(raw) {
+      const m = raw.match(/(\d+)\s*(hours?|hrs?|hr)/i);
+      return m ? `${m[1]} hrs` : raw.trim();
+    }
+
+    async function callLlmProxy(step, rawValue) {
+      try {
+        const res = await fetch(API_ROUTES.llm, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            photographer_id: PHOTOGRAPHER_ID,
+            step_key: step.key,
+            step_prompt: step.question.replace(/<[^>]*>/g, ""),
+            message: rawValue,
+            captured_answers: answers
+          })
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        return {
+          isQuestion: Boolean(data.is_question),
+          extractedValue: stripReasoningTags(data.extracted_value || rawValue),
+          reply: stripReasoningTags(data.reply || "")
+        };
+      } catch {
+        const cleanVal =
+          step.key === "couple_names" ? fallbackCleanNames(rawValue) :
+          step.key === "coverage_package" ? fallbackCoverage(rawValue) :
+          rawValue;
+        return { isQuestion: false, extractedValue: cleanVal, reply: "" };
+      }
+    }
+
+    async function checkDateFreeBusy(weddingDate) {
+      const res = await fetch(API_ROUTES.availability, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ wedding_date: weddingDate, photographer_id: PHOTOGRAPHER_ID })
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      return { busy: Boolean(data.busy) };
+    }
+
+    async function sendSubmitWebhook(payload) {
+      const res = await fetch(API_ROUTES.submit, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return { ok: true };
+    }
+
+    async function askCurrentStep() {
+      updateProgress();
+      if (stepIndex >= STEPS.length) {
+        await showReviewAndSubmitCard();
+        return;
+      }
+      const step = STEPS[stepIndex];
+      addBotMessage(step.question);
+      renderQuickReplies(step.choices || []);
+      configureInputForStep(step);
+    }
+
+    async function handleUserAnswer(rawText) {
+      const value = rawText.trim();
+      if (!value || awaitingSubmit || submittedDone) return;
+      const step = STEPS[stepIndex];
+      if (!step) return;
+
+      addUserMessage(value);
+      userInput.value = "";
+
+      let finalStepValue = value;
+      if (step.inputType !== "date" && step.inputType !== "email") {
+        setInputDisabled("Thinking...");
+        const llmRes = await callLlmProxy(step, value);
+        if (llmRes.isQuestion && llmRes.reply) {
+          addBotMessage(`${llmRes.reply}<br/><br/>Whenever you're ready: <strong>${step.question}</strong>`);
+          configureInputForStep(step);
+          return;
+        }
+        finalStepValue = llmRes.extractedValue;
+      }
+
+      if (step.validate) {
+        const check = step.validate(finalStepValue);
+        if (check !== true) {
+          addBotMessage(check);
+          configureInputForStep(step);
+          return;
+        }
+      }
+
+      if (step.key === "wedding_date") {
+        setInputDisabled("Checking calendar...");
+        const statusBubble = createTypingBubble(`Give me a sec while I check availability for <strong>${finalStepValue}</strong>`);
+        try {
+          const result = await checkDateFreeBusy(finalStepValue);
+          isOccupiedVar = result.busy;
+          dateStatusVar = result.busy ? "busy" : "free";
+          setCapturedValue("wedding_date", finalStepValue);
+          answers.is_occupied = isOccupiedVar;
+          answers.date_status = dateStatusVar;
+          statusBubble.setHtml(
+            `<div class="availability-card ${result.busy ? "busy" : "free"}">` +
+              `<div><div class="availability-title">Status: ${result.busy ? "Busy" : "Free"}</div>` +
+              `<div class="availability-desc">${result.busy ? "That date shows as busy, though Sarah can discuss options." : "That date is open on our calendar!"}</div></div>` +
+            `</div>`
+          );
+        } catch (err) {
+          statusBubble.setHtml(`Couldn't verify <strong>${finalStepValue}</strong> (${err.message}). Please try again.`);
+          configureInputForStep(step);
+          return;
+        }
+      } else {
+        setCapturedValue(step.key, finalStepValue);
+      }
+
+      renderQuickReplies([]);
+      userInput.type = "text";
+      stepIndex += 1;
+      await askCurrentStep();
+    }
+
+    async function showReviewAndSubmitCard() {
+      awaitingSubmit = true;
+      updateProgress();
+      setInputDisabled("Click Submit Inquiry below when ready");
+      renderQuickReplies([]);
+
+      const payload = {
+        photographer_id: PHOTOGRAPHER_ID,
+        couple_names: coupleNamesVar,
+        email: clientEmailVar,
+        wedding_date: weddingDateVar,
+        date_status: dateStatusVar,
+        is_occupied: isOccupiedVar,
+        coverage_package: coveragePackageVar,
+        consultation_preference: consultationPreferenceVar,
+        submitted_at: new Date().toISOString()
+      };
+
+      const bubble = addBotMessage(
+        `Here is your consultation summary, <strong>${coupleNamesVar}</strong>:` +
+        `<div class="summary-card">` +
+          `<div class="summary-card-header">Consultation Summary</div>` +
+          `<div class="summary-grid">` +
+            `<div class="summary-label">Couple</div><div class="summary-val">${payload.couple_names}</div>` +
+            `<div class="summary-label">Email</div><div class="summary-val">${payload.email}</div>` +
+            `<div class="summary-label">Wedding Date</div><div class="summary-val">${payload.wedding_date}</div>` +
+            `<div class="summary-label">Calendar</div><div class="summary-val">${payload.date_status}</div>` +
+            `<div class="summary-label">Coverage</div><div class="summary-val">${payload.coverage_package}</div>` +
+            `<div class="summary-label">Chat Window</div><div class="summary-val">${payload.consultation_preference}</div>` +
+          `</div>` +
+          `<button type="button" class="submit-inquiry-btn" id="submitInquiryBtn">Submit Inquiry</button>` +
+        `</div>`
+      );
+
+      const btn = bubble.querySelector("#submitInquiryBtn");
+      btn.addEventListener("click", async () => {
+        btn.disabled = true;
+        btn.textContent = "Sending...";
+        try {
+          await sendSubmitWebhook(payload);
+          submittedDone = true;
+          awaitingSubmit = false;
+          updateProgress();
+          setInputDisabled("Inquiry sent");
+          btn.textContent = "Submitted";
+          addBotMessage(`Your inquiry has been sent to Sarah, <strong>${coupleNamesVar}</strong>.`);
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = "Submit Inquiry";
+          addBotMessage(`Couldn't submit right now (${err.message}). Please try again.`);
+        }
+      });
+    }
+
+    async function startConversation() {
+      chatMessages.innerHTML = "";
+      quickReplies.innerHTML = "";
+      stepIndex = 0;
+      awaitingSubmit = false;
+      submittedDone = false;
+      answers = {};
+      coupleNamesVar = clientEmailVar = weddingDateVar = dateStatusVar =
+      coveragePackageVar = consultationPreferenceVar = "";
+      isOccupiedVar = null;
+      await askCurrentStep();
+    }
+
+    chatForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handleUserAnswer(userInput.value);
+    });
+
+    startConversation();
+  </script>
+</body>
+</html>
